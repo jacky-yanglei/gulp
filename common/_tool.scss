@@ -1,0 +1,36 @@
+// 背景图片地址转换
+@mixin pcBg($act, $url) {
+  background-image: url('/dist/'+ $act + '/' + $url);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+// 格式化
+@function parseInt($n) {
+  @return $n / ($n * 0 + 1);
+}
+
+// PC端转换rem
+@function rem($value, $scale: 192px) {
+  $root: $scale;
+  $val: parseInt($value);
+  $return: ();
+  @if unit($value) == 'px' {
+    $return: append($return, ($value / $root * 1rem));
+  } @else {
+    $return: append($return, ($value * $root * 1px));
+  }
+  @return $return;
+}
+
+// 移动端转换rem
+@function remb($value, $scale: 75px) {
+  $root: $scale;
+  $val: parseInt($value);
+  $return: ();
+  @if unit($value) == 'px' {
+    $return: append($return, ($value / $root * 1rem));
+  } @else {
+    $return: append($return, ($value * $root * 1px));
+  }
+  @return $return;
+}

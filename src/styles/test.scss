@@ -1,0 +1,6 @@
+@import "../../common/_tool.scss";
+div {
+  width: 200px;
+  height: 100px;
+  @include pcBg('test', '$SWCI59`[PY_H$E118BDJ0S.png');
+}
